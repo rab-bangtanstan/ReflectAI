@@ -4,6 +4,9 @@ A full-stack, user-authenticated journaling and reflection assistant powered by 
 
 ---
 
+<img width="1412" height="867" alt="image" src="https://github.com/user-attachments/assets/f00c907d-7435-4d40-bdef-06ddd2233c30" />
+
+
 ## 1. Environment & Prerequisites
 
 Ensure the following Google Cloud APIs and services are enabled in your project:
