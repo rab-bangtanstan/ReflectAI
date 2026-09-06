@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-oat-wash: #EFE9DE;
+    --color-pressed-vellum: #FDFAF6;
+    --color-charcoal-ink: #242728;
+    --color-slate-mist: #52595C;
+    --color-linen-thread: #DCD5C9;
+    --color-quiet-sage: #2B6B55;
+    --color-dusk-heather: #6B5E7E;
+    --color-sunlit-amber: #BD7014;
+  }
+
+  body {
+    font-family: 'Newsreader', Georgia, serif;
+    background-color: #EFE9DE;
+    color: #242728;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #DCD5C9;
+    color: #242728;
+  }
+
+  .font-sans {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .font-serif {
+    font-family: 'Newsreader', Georgia, serif;
+  }
+
+  /* Accessible high-visibility focus states */
+  *:focus-visible {
+    outline: 2px solid #A67938;
+    outline-offset: 2px;
+  }
+}
+
+/* Respect user's motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Quiet notebook scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #E1DCD3;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A4ACB0;
+}

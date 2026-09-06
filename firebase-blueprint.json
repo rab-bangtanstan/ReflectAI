@@ -1,0 +1,60 @@
+{
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "User profile with preference settings and metadata",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "lastActiveAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "email"]
+    },
+    "entries": {
+      "title": "Journal Entry",
+      "description": "User journal entry with reflection conversation history and AI generated summaries",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "initialPrompt": { "type": "string" },
+        "category": { "type": "string" },
+        "mood": { "type": "string" },
+        "summary": { "type": "string" },
+        "keyInsights": { "type": "array", "items": { "type": "string" } },
+        "actionItems": { "type": "array", "items": { "type": "string" } },
+        "messages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "role": { "type": "string", "enum": ["user", "assistant"] },
+              "content": { "type": "string" },
+              "timestamp": { "type": "string", "format": "date-time" }
+            },
+            "required": ["id", "role", "content", "timestamp"]
+          }
+        },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "title", "messages", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "users",
+      "description": "User profile with preference settings and metadata"
+    },
+    "/users/{userId}/entries/{entryId}": {
+      "schema": "entries",
+      "description": "User journal entry with reflection conversation history and AI generated summaries"
+    }
+  }
+}
